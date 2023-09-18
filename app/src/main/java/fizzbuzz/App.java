@@ -19,14 +19,18 @@ public class App {
         String current = "";
 
         for (int i = 0; i <= cap; i++) {
-            if (isDivBy(i, 3)) {
-                current += "FIZZ";
-            }
-            if (isDivBy(i, 5)) {
-                current += "BUZZ";
-            }
-            if (isDivBy(i, 7)) {
-                current += "BANG";
+            if (isDivBy(i, 11)) {
+                current += "BONG";
+            } else {
+                if (isDivBy(i, 3)) {
+                    current += "FIZZ";
+                }
+                if (isDivBy(i, 5)) {
+                    current += "BUZZ";
+                }
+                if (isDivBy(i, 7)) {
+                    current += "BANG";
+                }
             }
 
             if (current.isEmpty()) {
@@ -41,45 +45,6 @@ public class App {
         System.out.println(sb);
     }
 
-    public static void fizzbuzz() {
-        int cap = 100;
-        StringBuilder sb = new StringBuilder();
-
-        // Iterate through numbers 1 -> 100
-        for (int i = 1; i <= cap; i++) {
-            if (isDivBy(i, 11)) {
-                sb.append("BONG");
-            }
-            //if i is divisible by 7 and 3 OR 5 [7 AND(OR(3, 5))]
-            else if (isDivBy(i, 7) && (isDivBy(i, 3) || isDivBy(i, 5))) {
-                sb.append("FIZZBANG");
-            }
-            // if i is only divisible by 3 and not 5
-            else if (isDivBy(i, 3) && !isDivBy(i, 5)) {
-                sb.append("FIZZ");
-            }
-            // if i is only divisible by 5 and not 3
-            else if (!isDivBy(i, 3) && isDivBy(i, 5)) {
-                sb.append("BUZZ");
-            }
-            // if i is divisible by both
-            else if (isDivBy(i, 3)) {
-                sb.append("FIZZBUZZ");
-            }
-            // if i is divisible by 7 and NOT 3 or 5
-            if (isDivBy(i, 7) && !(isDivBy(i, 3) || isDivBy(i, 5))) {
-                sb.append("BANG");
-            }
-            else {
-                sb.append(i);
-            }
-
-
-            sb.append("\n");
-        }
-
-        System.out.println(sb);
-    }
 
     private static boolean isDivBy(int left, int right) {
         return left % right == 0;
