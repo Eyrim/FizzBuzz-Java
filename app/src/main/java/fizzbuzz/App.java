@@ -7,6 +7,40 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 public class App {
+    public static void fizzbuzzNew() {
+        /*
+        If i MOD 3: "FIZZ"
+        IF i mod 5: "BUZZ"
+        If i MOD 3 AND i MOD 5: "FIZZBUZZ"
+         */
+
+        int cap = 300;
+        StringBuilder sb = new StringBuilder();
+        String current = "";
+
+        for (int i = 0; i <= cap; i++) {
+            if (isDivBy(i, 3)) {
+                current += "FIZZ";
+            }
+            if (isDivBy(i, 5)) {
+                current += "BUZZ";
+            }
+            if (isDivBy(i, 7)) {
+                current += "BANG";
+            }
+
+            if (current.isEmpty()) {
+                sb.append(i);
+            }
+
+            sb.append(current);
+            sb.append("\n");
+            current = "";
+        }
+
+        System.out.println(sb);
+    }
+
     public static void fizzbuzz() {
         int cap = 100;
         StringBuilder sb = new StringBuilder();
@@ -15,11 +49,6 @@ public class App {
         for (int i = 1; i <= cap; i++) {
             if (isDivBy(i, 11)) {
                 sb.append("BONG");
-            }
-
-            // if i is divisible by 7 and NOT 3 or 5
-            else if (isDivBy(i, 7) && !(isDivBy(i, 3) || isDivBy(i, 5))) {
-                sb.append("BANG");
             }
             //if i is divisible by 7 and 3 OR 5 [7 AND(OR(3, 5))]
             else if (isDivBy(i, 7) && (isDivBy(i, 3) || isDivBy(i, 5))) {
@@ -37,9 +66,14 @@ public class App {
             else if (isDivBy(i, 3)) {
                 sb.append("FIZZBUZZ");
             }
+            // if i is divisible by 7 and NOT 3 or 5
+            if (isDivBy(i, 7) && !(isDivBy(i, 3) || isDivBy(i, 5))) {
+                sb.append("BANG");
+            }
             else {
                 sb.append(i);
             }
+
 
             sb.append("\n");
         }
@@ -67,6 +101,6 @@ public class App {
 
     public static void main(String[] args) {
 //        getDivisorsList(12);
-        fizzbuzz();
+        fizzbuzzNew();
     }
 }
