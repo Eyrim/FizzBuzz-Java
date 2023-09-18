@@ -15,17 +15,17 @@ public class App {
         StringBuilder sb = new StringBuilder();
 
         // Iterate through numbers 1 -> 100
-        for (int i = 1; i < (cap + 1); i++) {
+        for (int i = 1; i <= cap; i++) {
             // if i is only divisible by 3 and not 5
-            if (i % 3 == 0 && i % 5 != 0) {
+            if (isDivBy(i, 3) && !isDivBy(i, 5)) {
                 sb.append("FIZZ\n");
             }
             // if i is only divisible by 5 and not 3
-            else if (i % 3 != 0 && i % 5 == 0) {
+            else if (!isDivBy(i, 3) && isDivBy(i, 5)) {
                 sb.append("BUZZ\n");
             }
             // if i is divisible by both
-            else if (i % 3 == 0) {
+            else if (isDivBy(i, 3)) {
                 sb.append("FIZZ BUZZ\n");
             }
             else {
@@ -35,6 +35,10 @@ public class App {
         }
 
         System.out.println(sb);
+    }
+
+    private static boolean isDivBy(int left, int right) {
+        return left % right == 0;
     }
 
     public static void main(String[] args) {
