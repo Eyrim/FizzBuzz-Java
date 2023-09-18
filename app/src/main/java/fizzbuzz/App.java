@@ -3,9 +3,38 @@
  */
 package fizzbuzz;
 
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Hashtable;
+import java.util.Map;
+import java.util.stream.Collectors;
+
 public class App {
     public static void fizzbuzz() {
-        // Your code goes here!
+        int cap = 100;
+        StringBuilder sb = new StringBuilder();
+
+        // Iterate through numbers 1 -> 100
+        for (int i = 1; i < (cap + 1); i++) {
+            // if i is only divisible by 3 and not 5
+            if (i % 3 == 0 && i % 5 != 0) {
+                sb.append("FIZZ\n");
+            }
+            // if i is only divisible by 5 and not 3
+            else if (i % 3 != 0 && i % 5 == 0) {
+                sb.append("BUZZ\n");
+            }
+            // if i is divisible by both
+            else if (i % 3 == 0) {
+                sb.append("FIZZ BUZZ\n");
+            }
+            else {
+                sb.append(i);
+                sb.append("\n");
+            }
+        }
+
+        System.out.println(sb);
     }
 
     public static void main(String[] args) {
