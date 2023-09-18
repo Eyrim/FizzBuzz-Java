@@ -13,9 +13,12 @@ public class App {
 
         // Iterate through numbers 1 -> 100
         for (int i = 1; i <= cap; i++) {
+            if (isDivBy(i, 11)) {
+                sb.append("BONG");
+            }
 
             // if i is divisible by 7 and NOT 3 or 5
-            if (isDivBy(i, 7) && !(isDivBy(i, 3) || isDivBy(i, 5))) {
+            else if (isDivBy(i, 7) && !(isDivBy(i, 3) || isDivBy(i, 5))) {
                 sb.append("BANG");
             }
             //if i is divisible by 7 and 3 OR 5 [7 AND(OR(3, 5))]
@@ -32,7 +35,7 @@ public class App {
             }
             // if i is divisible by both
             else if (isDivBy(i, 3)) {
-                sb.append("FIZZ BUZZ");
+                sb.append("FIZZBUZZ");
             }
             else {
                 sb.append(i);
